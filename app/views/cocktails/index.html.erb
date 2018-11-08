@@ -1,0 +1,47 @@
+<div class="container-main">
+  <div class="navbar-wagon">
+    <!-- Logo -->
+    <a href="/" class="navbar-wagon-brand">
+    <img src="https://www.artistshot.com/assets-3/images/admin/designs/106835/106835-250x250.png" alt="logo">
+  </a>
+    <!-- Right Navigation -->
+    <h1 id="header-text">The House of Blue Leaves</h1>
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <%= link_to "Home", cocktails_path %>
+      <!-- Profile picture with dropdown list -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img src="https://cdn-images-1.medium.com/max/1225/1*0AEydt0Wm1HD-b2nRD23zQ.jpeg" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+      </div>
+        </div>
+      </div>
+    </div>
+    <div class="banner" style="background-image: url('https://images.alphacoders.com/292/thumb-1920-29241.jpg');">
+      <div class="banner-content">
+        <div class="container">
+          <!-- <div class="row">
+            <div class="col-md-6 col-md-offset-3"> -->
+
+              <p>Here's the list of drinks:</p>
+              <br>
+              <% @cocktails.each do |cocktail| %>
+              <p>
+                <%= link_to cocktail.name, cocktail_path(cocktail) %>
+                <%= link_to "", cocktail_path(cocktail),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" },
+                  class: 'glyphicon glyphicon-trash' %>
+              </p>
+              <% end %>
+              <br>
+              <p>
+                <%= link_to(new_cocktail_path) do %>
+                <i class="fas fa-glass-martini"></i>
+                Add a new drink
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

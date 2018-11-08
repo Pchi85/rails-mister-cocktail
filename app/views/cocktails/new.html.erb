@@ -1,0 +1,28 @@
+<div class="container-main">
+  <div class="navbar-wagon">
+    <!-- Logo -->
+    <a href="/" class="navbar-wagon-brand">
+    <img src="images/logo.png" alt="logo">
+  </a>
+    <!-- Right Navigation -->
+    <h1 id="header-text">The House of Blue Leaves</h1>
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <%= link_to "Home", cocktails_path %>
+      <!-- Profile picture with dropdown list -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img src="https://cdn-images-1.medium.com/max/1225/1*0AEydt0Wm1HD-b2nRD23zQ.jpeg" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+      </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <%= simple_form_for [@cocktail] do |f| %>
+          <%= f.input :name %>
+          <%= f.submit "Add New Drink", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
