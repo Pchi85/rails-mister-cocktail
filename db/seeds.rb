@@ -8,6 +8,18 @@
 require 'json'
 require 'open-uri'
 
+ url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+ drinks = open(url).read
+ user = JSON.parse(drinks)
+ usernew = user["drinks"]
+
+ usernew.each do |ingre|
+   p ingre
+   drink = ingre["strIngredient1"]
+   posts = Ingredient.new(name: drink)
+   posts.save
+ end
+
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
