@@ -1,29 +1,49 @@
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <h2><%= @cocktail.name %></h2>
-          <h4>Recipe</h4>
-          <% @cocktail.doses.each do |dose| %>
-          <%= dose.description %>
-          <p>Ingredient:
-            <%= dose.ingredient.name %>
-          </p>
-          <% end %>
-          <ul class="list-inline">
-            <li>
-              <%= link_to(edit_cocktail_path) do %>
-              <i class="far fa-edit"></i>
-              Edit
-              <% end %>
-            </li>
-            <li>
-              <%= link_to(cocktails_path) do %>
-              <i class="fas fa-undo"></i>
-              Back to List
-              <% end %>
-            </li>
-          </ul>
+<div class="container-main">
+  <div class="navbar-wagon">
+    <!-- Logo -->
+    <a href="/" class="navbar-wagon-brand">
+    <img src="https://www.artistshot.com/assets-3/images/admin/designs/106835/106835-250x250.png" alt="logo">
+  </a>
+    <!-- Right Navigation -->
+    <h1 id="header-text">The House of Blue Leaves</h1>
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <%= link_to "Home", cocktails_path %>
+      <!-- Profile picture with dropdown list -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img src="https://cdn-images-1.medium.com/max/1225/1*0AEydt0Wm1HD-b2nRD23zQ.jpeg" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         </div>
       </div>
     </div>
-
+  </div>
+  <div class="banner" style="background-image: url('https://images.alphacoders.com/292/thumb-1920-29241.jpg');">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
+            <h2><%= @cocktail.name %></h2>
+            <h4>Recipe</h4>
+            <% @cocktail.doses.each do |dose| %>
+            <%= dose.description %>
+            <p>Ingredient:
+              <%= dose.ingredient.name %>
+            </p>
+            <% end %>
+            <ul class="list-inline">
+              <li>
+                <%= link_to(@new_cocktail_dose) do %>
+                <i class="far fa-edit"></i>
+                Edit
+                <% end %>
+              </li>
+              <li>
+                <%= link_to(cocktails_path) do %>
+                <i class="fas fa-undo"></i>
+                Back to List
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

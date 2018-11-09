@@ -1,12 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-    <h2>New dosage for <%= @cocktail.name %></h2>
-    <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.input :description %>
-      <%= f.association :ingredient %>
-      <%= f.submit "Confirm New Dosage", class: "btn btn-primary" %>
-    <% end %>
+<div class="container-main">
+  <div class="navbar-wagon">
+    <!-- Logo -->
+    <a href="/" class="navbar-wagon-brand">
+    <img src="https://www.artistshot.com/assets-3/images/admin/designs/106835/106835-250x250.png" alt="logo">
+  </a>
+    <!-- Right Navigation -->
+    <h1 id="header-text">The House of Blue Leaves</h1>
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <%= link_to "Home", cocktails_path %>
+      <!-- Profile picture with dropdown list -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img src="https://cdn-images-1.medium.com/max/1225/1*0AEydt0Wm1HD-b2nRD23zQ.jpeg" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+      </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+    <div class="banner" style="background-image: url('https://images.alphacoders.com/292/thumb-1920-29241.jpg');">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h2>New dosage for <%= @cocktail.name %></h2>
+            <%= simple_form_for [@cocktail, @dose] do |f| %>
+            <%= f.input :description %>
+            <%= f.association :ingredient %>
+            <%= f.submit "Confirm New Dosage", class: "btn btn-danger" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
